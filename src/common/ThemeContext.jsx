@@ -1,7 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import { useContext } from "react";
-import { createContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext();
 
@@ -14,7 +11,7 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);
-    localStorage.getItem("theme", theme);
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
